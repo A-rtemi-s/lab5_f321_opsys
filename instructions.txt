@@ -1,0 +1,68 @@
+Lab 5: Virtualization using Processes and File Systems
+
+Course: Operating Systems
+
+Work in Group of 2
+
+Objective
+This lab focuses on simulating basic virtualization concepts using processes, file system
+isolation, and simple inter-process communication. The goal is to connect concepts learned
+in previous labs into a single integrated system.
+
+Part 1: Create Virtual File Systems
+Create three virtual file systems using loop devices. Use the following commands:
+
+dd if=/dev/zero of=vm1.img bs=1M count=20
+mkfs.ext3 vm1.img
+mkdir /mnt/vm1
+mount vm1.img /mnt/vm1
+
+Repeat the same steps for vm2 and vm3.
+
+Part 2: Virtual Machines using Processes
+Write a C program that creates three child processes using fork(). Each process represents a
+virtual machine (VM).
+
+VM1 works in /mnt/vm1
+VM2 works in /mnt/vm2
+VM3 works in /mnt/vm3
+
+Each VM should create a file, write a message, and read it back.
+
+Part 3: Isolation Check
+Each VM should attempt to access another VM directory and print whether access is
+allowed or denied.
+
+Part 4: Communication
+Implement simple communication using signals or shared memory:
+- VM1 sends a signal or message to VM2
+- VM2 prints a confirmation message
+
+Part 5: Failure Simulation
+Terminate one VM using the kill command:
+kill -9 <pid>
+Show that other VMs continue execution.
+
+Part 6: Cleanup
+umount /mnt/vm1
+umount /mnt/vm2
+umount /mnt/vm3
+
+Deliverables
+1. Source code
+2. List of commands used
+3. Output screenshots
+
+Short Questions
+Answer briefly (2-3 lines each):
+1. What makes each VM independent?
+2. How do the VMs communicate?
+3. What happens when one VM is terminated?
+
+Grading
+File system setup: 4 points
+Process creation: 4 points
+File operations: 4 points
+Isolation: 3 points
+Communication: 3 points
+Submission quality: 2 points
