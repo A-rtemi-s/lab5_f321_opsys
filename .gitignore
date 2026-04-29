@@ -2,3 +2,6 @@
 vm1.img
 vm2.img
 vm3.img
+
+# don't wanna push my personal compiled lab5.c, which i name 'l' with `gcc -o l lab5.c`
+l
