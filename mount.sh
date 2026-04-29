@@ -4,7 +4,7 @@
 # Partner Names: Miko Lemecha, Artyom Kesler
 # Due April 29, 2026
 #
-# For CS F321 Spring 2026
+# CS F321 Spring 2026
 # For PA5 (Lab 5: Virtualization)
 
 
