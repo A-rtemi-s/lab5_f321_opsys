@@ -1,0 +1,9 @@
+1. What makes each VM independent?
+    Each virtual machine runs in its own dedicated process space since it is a fork. The virtual machines also operate within their own separate virtual file system. These file systems are mounted to unique loop devices.
+
+2. How do the VMs communicate?
+    Using POSIX signals such as SIGUSR1, the virtual machines can send alerts. They are able to do so using each others' PID, which they obtain conveniently through mmap(), a black box function that stores PIDs in RAM.
+
+3. What happens when one VM is terminated?
+    If the OS destroys that specific child process, its parent and sibling processes will continue executing. The surviving VMs are unaffected, since their execution environments are isolated from each other. This can be shown to be true in the provided screenshot, where PID 2 was killed.
+

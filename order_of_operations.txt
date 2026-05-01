@@ -1,0 +1,16 @@
+To properly execute the compiled code, first run:
+
+sudo ./mount.sh
+
+
+This file contains the code needed for a fully operational mounting process, catered to WSL.
+
+
+Once done, run:
+
+sudo ./unmount.sh
+
+
+
+
+Note: I've discovered this will only work as root on WSL!
