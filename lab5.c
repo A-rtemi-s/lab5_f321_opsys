@@ -1,3 +1,9 @@
+// lab5.c
+// Partner Names: Miko Lemecha, Artyom Kesler
+// Due April 29, 2026
+// For 'Lab 5: Virtualization'
+
+
 #include <stdio.h>    // for printf()
 #include <stdlib.h>   // for exit()
 #include <unistd.h>   // for fork(), getpid(), and sleep().
@@ -56,7 +62,7 @@ void vm_behavior(int vm_id) {
         fclose(fp2);
     } else {
         // VMs are isolated enough that one cannot read the files of another.
-        printf("[VM%d] Access denied.\n", vm_id);
+        printf("[VM%d] Access denied due to VM isolation.\n", vm_id);
     }
 
     // Terminal has been known to become a jumbled mess unless we wait 2s.
@@ -102,6 +108,9 @@ int main() {
     for (int i = 0; i < 3; i++) {
         wait(NULL);
     }
+
+    // Giving memory back to OS after using mmap()
+    munmap(vm_pids, 3 * sizeof(pid_t));
 
     printf("All processes are complete.\n");
     return 0;
